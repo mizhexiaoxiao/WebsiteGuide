@@ -22,6 +22,10 @@ axios.defaults.baseURL = process.env.BASE_API
 //请求超时时间
 axios.defaults.timeout = 10000 //超时10秒
 
+let protocol = window.location.protocol; //协议
+let host = window.location.host;
+axios.defaults.baseURL = protocol + "//" + host  +":80";
+
 axios.interceptors.request.use(config => {
   if (localStorage.token) {
     config.headers.Authorization = 'JWT ' + localStorage.token
