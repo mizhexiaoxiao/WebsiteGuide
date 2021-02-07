@@ -1,10 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from django.contrib.auth.models import Permission, Group, GroupManager
-from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
-from .abstract import AbastractModel
-from django.conf import settings
-import os
 
 # Create your models here.
 
