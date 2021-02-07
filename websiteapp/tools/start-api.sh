@@ -1,4 +1,7 @@
 #!/bin/bash
 
-cd $(dirname $(dirname $0))
-exec gunicorn -b 127.0.0.1:8000 -w 2 --threads 8 --access-logfile - WebsiteGuide.wsgi
+cd /WebsiteGuide
+if [ -f ./venv/bin/activate ];then
+  source ./venv/bin/activate
+fi
+exec gunicorn -b 0.0.0.0:9090 -w 2 --threads 4 --access-logfile - WebsiteGuide.wsgi
