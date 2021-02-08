@@ -19,11 +19,11 @@ console.log('env',process.env.NODE_ENV,process.env.BASE_API)
 
 //根据环境匹配api地址
 if (process.env.NODE_ENV === 'development') {
-  console.log('env=dev',window.location.protocol,window.location.host,"80")
+  console.log('env=dev',window.location.protocol,window.location.host)
   axios.defaults.baseURL = 'http://127.0.0.1:8000/'
 }else if(process.env.NODE_ENV === 'production'){
-  console.log('env=pro',window.location.protocol,window.location.host,"80")
-  axios.defaults.baseURL = window.location.protocol + "//" + window.location.host  +":80";
+  console.log('env=pro',window.location.protocol,window.location.host)
+  axios.defaults.baseURL = window.location.protocol + "//" + window.location.host ;
 }
 //请求超时时间
 axios.defaults.timeout = 10000 //超时10秒
