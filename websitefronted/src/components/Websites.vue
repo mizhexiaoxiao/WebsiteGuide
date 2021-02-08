@@ -50,7 +50,7 @@
         },
         methods: {
             icon(id) {
-                return axios.defaults.baseURL + 'api/icon/?id=' + id
+                return axios.defaults.baseURL + '/api/icon/?id=' + id
             },
             redirect(path) {
                 if (path.startsWith('http')) {

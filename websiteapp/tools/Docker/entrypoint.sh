@@ -7,6 +7,13 @@ if [ ! -d /run/nginx ]; then
     chown -R nginx.nginx /run/nginx
 fi
 
+# init supervisor
+if [ ! -f /run/supervisor.sock ];then
+    touch /run/supervisor.sock
+    chmod 777 /run/supervisor.sock
+    unlink /run/supervisor.sock
+fi
+
 # init app
 if [ ! -f /WebsiteGuide/db.sqlite3 ]; then
     cd /WebsiteGuide
