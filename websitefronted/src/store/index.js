@@ -12,7 +12,7 @@ const store = new Vuex.Store({
     username: '',
     expire: '',
     token: '',
-    is_superuser:null
+    is_superuser: null
 
   },
   mutations: {
@@ -49,6 +49,16 @@ const store = new Vuex.Store({
     logout: context => {
       context.commit('removeStorage')
     },
+    getWebsitesList: (context, data) => {
+      return new Promise((resolve, reject) => {
+        axios.get('/api/alldata/', {params:data}).then(resp => {
+          context.commit('updatewebsiteList', resp.data)
+          resolve(resp)
+        }).catch(error => {
+          reject(error)
+        })
+      })
+    }
   }
 })
 

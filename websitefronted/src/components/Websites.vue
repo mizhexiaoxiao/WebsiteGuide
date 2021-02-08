@@ -4,12 +4,16 @@
       <Input search size="large" style="width: 600px" placeholder="search..." @on-search='search'/>
     </div>
     <div v-for="item in $store.state.websiteList" :key="item.id">
+      <Row>
+        <Col>
+          <div :id="anchorId(item.id)"
+               style="line-height: 60px; font-size: 17px;margin-left: 15px;">
+            <Icon type="ios-pricetags-outline"/>
+            {{item.name}}
+          </div>
+        </Col>
+      </Row>
       <Row :gutter="32">
-        <div :id="anchorId(item.id)"
-             style="line-height: 60px; font-size: 17px;margin-left: 15px;">
-          <Icon type="ios-pricetags-outline"/>
-          {{item.name}}
-        </div>
         <Col span="6" style="padding: 12px;" v-for="(data,index) in item.websites" :key="index">
           <div style="cursor: pointer;" @click="redirect(data.path)">
             <Tooltip id="tooltip-1" :content="data.path" transfer max-width="300" placement="top">
@@ -33,28 +37,20 @@
 </template>
 
 <script>
-    import axios from 'axios'
 
     export default {
         name: 'Websites',
         created() {
-            console.log('123',process.env.BASE_API)
-          this.getWebsitesList()
+            this.$Loading.start()
+            this.$store.dispatch('getWebsitesList').then(resp => {
+                this.$Loading.finish()
+            }).catch(error => {
+                this.$Loading.error()
+            })
         },
-        // mounted() {
-        //  this.getWebsitesList()
-        // },
         methods: {
             icon(id) {
-                return process.env.BASE_API+ 'api/icon/?id=' + id
-            },
-            getWebsitesList() {
-                axios.get('/api/alldata/').then(resp => {
-                    this.websiteList = resp.data
-                    this.$store.commit('updatewebsiteList', this.websiteList)
-                    this.$Loading.finish()
-                }).catch(error => {
-                })
+                return process.env.BASE_API + 'api/icon/?id=' + id
             },
             redirect(path) {
                 if (path.startsWith('http')) {
@@ -68,11 +64,10 @@
             },
             search(value) {
                 this.$Loading.start()
-                this.axios.get('/api/alldata/?search=' + value).then(resp => {
+                this.$store.dispatch('getWebsitesList', {search: value}).then(resp => {
                     this.$Loading.finish()
-                    this.$store.commit('updatewebsiteList', resp.data)
                 }).catch(error => {
-
+                    this.$Loading.error()
                 })
             }
         }
