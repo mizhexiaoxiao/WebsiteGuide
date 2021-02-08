@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-
+from django.contrib.auth.hashers import make_password
 # Create your models here.
 
 class UserInfo(AbstractUser):
@@ -14,6 +14,10 @@ class UserInfo(AbstractUser):
     created = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
     modified = models.DateTimeField(verbose_name='更新时间', auto_now=True)
     deleted = models.BooleanField(verbose_name='己删除', default=False)
+
+    @staticmethod
+    def make_password(plain_password: str) -> str:
+        return make_password(plain_password, hasher='pbkdf2_sha256')
 
     def __str__(self):
         return self.username

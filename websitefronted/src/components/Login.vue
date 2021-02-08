@@ -95,14 +95,6 @@
                                 }
                             )
                         })
-                        // this.$router.push({name: 'websites'})
-                        // this.$store.dispatch('login', this.loginForm).then(resp => {
-                        //     // this.$Notice.success({title: '登录成功！'})
-                        //     this.$router.push({name: 'websites'})
-                        // }).catch(error => {
-                        //     console.log(error)
-                        //     this.$Notice.error({title: '登录失败！'})
-                        // })
                     }
                 })
             }

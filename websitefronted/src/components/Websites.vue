@@ -37,7 +37,7 @@
 </template>
 
 <script>
-
+    import axios from 'axios'
     export default {
         name: 'Websites',
         created() {
@@ -50,7 +50,7 @@
         },
         methods: {
             icon(id) {
-                return process.env.BASE_API + 'api/icon/?id=' + id
+                return axios.defaults.baseURL + 'api/icon/?id=' + id
             },
             redirect(path) {
                 if (path.startsWith('http')) {

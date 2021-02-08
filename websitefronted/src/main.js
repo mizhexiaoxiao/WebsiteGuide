@@ -9,22 +9,21 @@ import ViewUI from 'view-design'
 import store from '@/store/index'
 import 'view-design/dist/styles/iview.css'
 import VueWechatTitle from 'vue-wechat-title';
+
 Vue.use(VueWechatTitle)
 
 Vue.config.productionTip = false
 Vue.use(VueAxios, axios)
 Vue.use(ViewUI)
 /* eslint-disable no-new */
-console.log('env',process.env.NODE_ENV,process.env.BASE_API)
 
 //根据环境匹配api地址
 if (process.env.NODE_ENV === 'development') {
-  console.log('env=dev',window.location.protocol,window.location.host)
   axios.defaults.baseURL = 'http://127.0.0.1:8000/'
-}else if(process.env.NODE_ENV === 'production'){
-  console.log('env=pro',window.location.protocol,window.location.host)
-  axios.defaults.baseURL = window.location.protocol + "//" + window.location.host ;
+} else if (process.env.NODE_ENV === 'production') {
+  axios.defaults.baseURL = window.location.protocol + "//" + window.location.host;
 }
+
 //请求超时时间
 axios.defaults.timeout = 10000 //超时10秒
 
@@ -41,6 +40,6 @@ new Vue({
   el: '#app',
   router,
   store,
-  components: { App },
+  components: {App},
   template: '<App/>'
 })
