@@ -18,7 +18,17 @@ Vue.use(ViewUI)
 console.log('env',process.env.NODE_ENV,process.env.BASE_API)
 
 //根据环境匹配api地址
-axios.defaults.baseURL = process.env.BASE_API
+// axios.defaults.baseURL = process.env.BASE_API
+let protocol = window.location.protocol; //协议
+let host = window.location.host; //主机
+let reg = /^localhost+/;
+if (reg.test(host)) {
+  //若本地项目调试使用
+  axios.defaults.baseURL = 'http://127.0.0.1:8000';
+} else {
+  //动态请求地址             协议               主机
+  axios.defaults.baseURL = protocol + "//" + host + ":80";
+}
 //请求超时时间
 axios.defaults.timeout = 10000 //超时10秒
 
