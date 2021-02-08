@@ -1,6 +1,8 @@
-# 												           WebsiteGuide
+<h1 align="center">WebsiteGuide</h1>
 
-WebsiteGuide网址导航系统基于Vue+djangorestframework开发，可用于企业内部系统导航，具有网址导航、后台管理、系统管理，后续考虑增加rbac和其他功能，欢迎使用和交流~
+<div align="center">WebsiteGuide网址导航系统基于Vue+djangorestframework开发，可用于企业内部系统导航，具有网址导航搜索、后台管理、系统管理等功能，后续考虑增加rbac和其他功能，欢迎使用和交流~</div>
+
+
 
 ### 环境
 
@@ -10,9 +12,27 @@ WebsiteGuide网址导航系统基于Vue+djangorestframework开发，可用于企
 - Node 13.14
 - Vue2.0
 
+![image](https://github.com/mizhexiaoxiao/WebsiteGuide/blob/main/websiteapp/media/sample-picture/1.jpg)
+
+![image](https://github.com/mizhexiaoxiao/WebsiteGuide/blob/main/websiteapp/media/sample-picture/2.jpg)
+
+![image](https://github.com/mizhexiaoxiao/WebsiteGuide/blob/main/websiteapp/media/sample-picture/3.jpg)
+
+![image](https://github.com/mizhexiaoxiao/WebsiteGuide/blob/main/websiteapp/media/sample-picture/4.jpg)
+
+![image](https://github.com/mizhexiaoxiao/WebsiteGuide/blob/main/websiteapp/media/sample-picture/5.jpg)
+
+### 演示地址
+
+http://demo.mizhexiao.top:8000/
+
+username：admin
+
+password：admin@1234
+
 ### 快速开始
 
-##### docker安装
+##### docker安装(版本17.05+)
 
 ```sh
 yum install -y docker
@@ -35,9 +55,11 @@ docker run -d --restart=always --name=websiteguide -p 8000:80 websiteguide
 
 ##### 访问
 
-```
-http://ip:8000
-```
+浏览器打开http://localhost:8000
+
+username：admin
+
+password：admin@1234
 
 ### 联系作者
 
