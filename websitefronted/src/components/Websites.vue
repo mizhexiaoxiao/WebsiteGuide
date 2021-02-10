@@ -16,7 +16,7 @@
       <Row :gutter="32">
         <Col span="6" style="padding: 12px;" v-for="(data,index) in item.websites" :key="index">
           <div style="cursor: pointer;" @click="redirect(data.path)">
-            <Tooltip id="tooltip-1" :content="data.path" transfer max-width="300" placement="top">
+<!--            <Tooltip id="tooltip-1" :content="data.path" transfer max-width="300" placement="top">-->
               <Card style="border-radius: 30px;">
                 <div class="card-div">
                   <div style="width: 30%;display: flex;align-items: center">
@@ -28,7 +28,7 @@
                   </div>
                 </div>
               </Card>
-            </Tooltip>
+<!--            </Tooltip>-->
           </div>
         </Col>
       </Row>
@@ -50,7 +50,7 @@
         },
         methods: {
             icon(id) {
-                return axios.defaults.baseURL + '/api/icon/?id=' + id
+                return axios.defaults.baseURL + 'api/icon/?id=' + id
             },
             redirect(path) {
                 if (path.startsWith('http')) {

@@ -41,7 +41,7 @@
             handleSubmit(name) {
                 this.$refs[name].validate((valid) => {
                     if (valid) {
-                        axios.put(`/api/group/${this.id}/`,this.form3).then(resp=>{
+                        axios.put(`api/group/${this.id}/`,this.form3).then(resp=>{
                             this.$Message.success('保存成功');
                             this.handleCancel(name)
                             this.$parent.init()

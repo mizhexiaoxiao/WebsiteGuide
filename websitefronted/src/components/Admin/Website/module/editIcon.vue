@@ -50,7 +50,7 @@
                     data.append('file', this.file)
                     axios({
                         method: 'post',
-                        url: `/api/icon/`,
+                        url: `api/icon/`,
                         data: data,
                     }).then(resp => {
                         this.file = null

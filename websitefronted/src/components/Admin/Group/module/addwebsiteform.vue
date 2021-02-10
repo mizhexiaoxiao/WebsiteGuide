@@ -142,7 +142,7 @@
                         this.form2.items.map(val => {
                             val.website_group = this.rowData.rowId
                         })
-                        axios.post('/api/website/', this.form2.items).then(resp => {
+                        axios.post('api/website/', this.form2.items).then(resp => {
                             this.handleCancel(name),
                                 this.$Message.success('添加成功')
                             this.$parent.init()

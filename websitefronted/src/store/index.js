@@ -37,7 +37,7 @@ const store = new Vuex.Store({
   actions: {
     login: (context, data) => {
       return new Promise((resolve, reject) => {
-        axios.post('/api/login/', data).then(resp => {
+        axios.post('api/login/', data).then(resp => {
           context.commit('updateToken', resp.data.detail.token)
           context.commit('decodeToken', resp.data.detail.token)
           resolve(resp)
@@ -51,7 +51,7 @@ const store = new Vuex.Store({
     },
     getWebsitesList: (context, data) => {
       return new Promise((resolve, reject) => {
-        axios.get('/api/alldata/', {params:data}).then(resp => {
+        axios.get('api/alldata/', {params:data}).then(resp => {
           context.commit('updatewebsiteList', resp.data)
           resolve(resp)
         }).catch(error => {

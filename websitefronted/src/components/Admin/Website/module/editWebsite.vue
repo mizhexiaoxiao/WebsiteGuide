@@ -64,7 +64,7 @@
             handleSubmit(name) {
                 this.$refs[name].validate((valid) => {
                     if (valid) {
-                        axios.patch(`/api/website/${this.rowData.id}/`, this.form).then(resp => {
+                        axios.patch(`api/website/${this.rowData.id}/`, this.form).then(resp => {
                             this.$Message.success('保存成功');
                             this.handleCancel(name)
                             this.$parent.refresh()

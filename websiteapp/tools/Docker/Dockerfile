@@ -6,7 +6,7 @@ RUN apk add --no-cache --virtual .build-deps  openssl-dev gcc musl-dev python3-d
     && mkdir /etc/supervisor.d
 
 RUN git clone https://github.com/mizhexiaoxiao/WebsiteGuide.git --depth=1 /WebsiteGuide && cd /WebsiteGuide && git pull
-#RUN cd /WebsiteGuide/websitefronted && npm i --registry=https://registry.npm.taobao.org && npm run build
+
 RUN cd /WebsiteGuide/websitefronted && npm install -g cnpm --registry=https://registry.npm.taobao.org && cnpm install &&  npm run build
 
 RUN pip config set global.index-url https://pypi.mirrors.ustc.edu.cn/simple/  && pip install --upgrade pip && pip install --no-cache-dir -r /WebsiteGuide/requirements.txt \
