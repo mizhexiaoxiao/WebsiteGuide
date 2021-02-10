@@ -17,14 +17,14 @@
           </Row>
           <Table :loading="loading" :columns="columns" :data="data">
             <template slot-scope="{ row }" slot="action">
-              <Button type="warning" @click="forbidden(row)">
+              <Button v-show="!row.is_superuser" type="warning" @click="forbidden(row)">
                 <span v-if="isActive(row)">禁用</span>
                 <span v-else>启用</span>
               </Button>
-              <Button type="primary" @click="resetPassword(row)">重置密码
+              <Button v-show="!row.is_superuser" type="primary" @click="resetPassword(row)">重置密码
               </Button>
-              <Button type="info" @click="editUser(row)">编辑</Button>
-              <Button type="error" @click="remove(row)">删除</Button>
+              <Button v-show="!row.is_superuser" type="info" @click="editUser(row)">编辑</Button>
+              <Button v-show="!row.is_superuser" type="error" @click="remove(row)">删除</Button>
             </template>
           </Table>
           <br>

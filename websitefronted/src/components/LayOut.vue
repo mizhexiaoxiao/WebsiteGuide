@@ -27,7 +27,7 @@
                 <Icon type="ios-arrow-down"></Icon>
               </div>
               <DropdownMenu slot="list">
-                <DropdownItem name="center">个人中心</DropdownItem>
+                <DropdownItem name="center" disabled>个人中心</DropdownItem>
                 <DropdownItem name="logout" divided>登出系统</DropdownItem>
               </DropdownMenu>
             </Dropdown>

@@ -37,7 +37,7 @@
             handleSubmit(name) {
                 this.$refs[name].validate((valid) => {
                     if (valid) {
-                        axios.post('/api/group/',this.form1).then(resp=>{
+                        axios.post('api/group/',this.form1).then(resp=>{
                             this.$Message.success('添加成功');
                             this.handleCancel(name)
                             console.log(this.$parent)
@@ -46,11 +46,6 @@
                             this.$Message.err('添加失败'+error)
                             console.log(error)
                         })
-                        // axios.get('/api/group/').then(resp=>{
-                        //     console.log(resp)
-                        // })
-                        console.log("这里提交axios数据.then")
-
                     }
                 })
             },

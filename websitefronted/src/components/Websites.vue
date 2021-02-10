@@ -16,19 +16,17 @@
       <Row :gutter="32">
         <Col span="6" style="padding: 12px;" v-for="(data,index) in item.websites" :key="index">
           <div style="cursor: pointer;" @click="redirect(data.path)">
-            <Tooltip id="tooltip-1" :content="data.path" transfer max-width="300" placement="top">
-              <Card style="border-radius: 30px;">
-                <div class="card-div">
-                  <div style="width: 30%;display: flex;align-items: center">
-                    <img :src="icon(data.id)" style="border-radius: 50%;width: 80%;height: 80%;">
-                  </div>
-                  <div style="width: 70%;">
-                    <div class="website-title">{{data.title}}</div>
-                    <p class="website-desc">{{data.description}}</p>
-                  </div>
+            <Card style="border-radius: 30px;">
+              <div class="card-div">
+                <div style="width: 30%;display: flex;align-items: center">
+                  <img :src="icon(data.id)" style="border-radius: 50%;width: 80%;height: 80%;">
                 </div>
-              </Card>
-            </Tooltip>
+                <div style="width: 70%;">
+                  <div class="website-title">{{data.title}}</div>
+                  <p class="website-desc">{{data.description}}</p>
+                </div>
+              </div>
+            </Card>
           </div>
         </Col>
       </Row>
@@ -38,6 +36,7 @@
 
 <script>
     import axios from 'axios'
+
     export default {
         name: 'Websites',
         created() {
@@ -50,7 +49,7 @@
         },
         methods: {
             icon(id) {
-                return axios.defaults.baseURL + '/api/icon/?id=' + id
+                return axios.defaults.baseURL + 'api/icon/?id=' + id
             },
             redirect(path) {
                 if (path.startsWith('http')) {
@@ -111,8 +110,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 75px;
-    max-height: 75px
+    height: 70px;
+    max-height: 70px
   }
 
 </style>
