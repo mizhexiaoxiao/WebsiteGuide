@@ -1,6 +1,6 @@
 <h1 align="center">WebsiteGuide</h1>
 
-<div align="center">WebsiteGuide网址导航系统主要用于方便企业记录和管理内部系统地址，具有网址增删改查、icon图标替换等功能，后续考虑增加rbac和其他功能，欢迎使用和交流~</div>
+<div align="center">WebsiteGuide网址导航系统主要用于企业记录和管理内部系统地址，具有网址增删改查、icon图标替换等功能，后续考虑增加rbac和其他功能，欢迎使用和交流~</div>
 
 
 
@@ -9,18 +9,24 @@
 - Python 3.6+
 - Django 2.2.13
 - Djangorestframework 3.12.2
-- Node 13.14
-- Vue2.0
+- Node 12.20.1+
+- Vue 2.0
+
+### 网址导航
 
 ![image](https://github.com/mizhexiaoxiao/WebsiteGuide/blob/main/websiteapp/media/sample-picture/1.jpg)
 
+### 支持批量添加
+
 ![image](https://github.com/mizhexiaoxiao/WebsiteGuide/blob/main/websiteapp/media/sample-picture/2.jpg)
+
+### 网址管理
 
 ![image](https://github.com/mizhexiaoxiao/WebsiteGuide/blob/main/websiteapp/media/sample-picture/3.jpg)
 
-![image](https://github.com/mizhexiaoxiao/WebsiteGuide/blob/main/websiteapp/media/sample-picture/4.jpg)
+### 用户管理
 
-![image](https://github.com/mizhexiaoxiao/WebsiteGuide/blob/main/websiteapp/media/sample-picture/5.jpg)
+![image](https://github.com/mizhexiaoxiao/WebsiteGuide/blob/main/websiteapp/media/sample-picture/4.jpg)
 
 ### 演示地址
 
