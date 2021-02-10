@@ -1,6 +1,6 @@
 <h1 align="center">WebsiteGuide</h1>
 
-<div align="center">WebsiteGuide网址导航系统基于Vue+djangorestframework开发，可用于企业内部系统导航，具有网址导航搜索、后台管理、系统管理等功能，后续考虑增加rbac和其他功能，欢迎使用和交流~</div>
+<div align="center">WebsiteGuide网址导航系统主要用于方便企业记录和管理内部系统地址，具有网址增删改查、icon图标替换等功能，后续考虑增加rbac和其他功能，欢迎使用和交流~</div>
 
 
 
