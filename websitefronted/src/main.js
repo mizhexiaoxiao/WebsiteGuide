@@ -21,7 +21,7 @@ Vue.use(ViewUI)
 if (process.env.NODE_ENV === 'development') {
   axios.defaults.baseURL = 'http://127.0.0.1:8000/'
 } else if (process.env.NODE_ENV === 'production') {
-  axios.defaults.baseURL = window.location.protocol + "//" + window.location.host;
+  axios.defaults.baseURL = window.location.protocol + "//" + window.location.host + "/";
 }
 
 //请求超时时间

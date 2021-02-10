@@ -109,7 +109,7 @@
                     title: `确定删除 ${row.name} ?`,
                     content: '<p>此分组下的数据都将被删除</p>',
                     onOk: () => {
-                        axios.delete(`/api/group/${row.id}/`).then(resp => {
+                        axios.delete(`api/group/${row.id}/`).then(resp => {
                             this.$Message.success('删除成功')
                             this.init()
                         }).catch(error => {
