@@ -10,7 +10,7 @@
       <Submenu name="submenu-1">
         <template slot="title">
           <Icon style="color: #fff" type="ios-navigate"></Icon>
-          <span>内部系统</span>
+          <span>网址导航</span>
         </template>
         <MenuItem v-for="item in $store.state.websiteList" :name="item.id" :key="item.id">
           <span>{{item.name}}</span>

@@ -53,7 +53,7 @@ class AllWebsiteDataViewSet(ReadOnlyModelViewSet):
     authentication_classes = (JSONWebTokenAuthentication,)
     permission_classes = [IsAuthenticated]
     filter_backends = (SearchFilter,)
-    search_fields = ('websites__title',)
+    search_fields = ('websites__title','websites__description')
     '''默认参数pk修改为id'''
     lookup_field = 'pk'
     lookup_url_kwarg = 'id'

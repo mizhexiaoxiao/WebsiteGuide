@@ -2,6 +2,7 @@
 # -*- coding:utf-8 -*-
 from rest_framework.serializers import ModelSerializer, ListSerializer
 from websiteapp import models
+from django.db.models import Q
 
 
 class WebsiteChildSerializer(ListSerializer):
@@ -11,7 +12,7 @@ class WebsiteChildSerializer(ListSerializer):
         request = self.context.get('request')
         value = request.query_params.get('search')
         if value:
-            data = data.filter(title__contains=value)
+            data = data.filter(Q(title__contains=value) | Q(description__contains=value))
         return super(WebsiteChildSerializer, self).to_representation(data)
 
 
