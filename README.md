@@ -41,7 +41,7 @@ password：admin@1234
 ##### docker安装(版本17.05+)
 
 ```sh
-yum install -y docker
+yum install -y docker-ce
 systemctl start docker
 ```
 
