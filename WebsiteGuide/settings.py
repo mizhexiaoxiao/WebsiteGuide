@@ -59,7 +59,7 @@ ROOT_URLCONF = 'WebsiteGuide.urls'
 
 #jwt setting
 JWT_AUTH = {
-    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=1),
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=5),
 }
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'websiteapp','media')
