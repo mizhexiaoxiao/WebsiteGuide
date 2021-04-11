@@ -30,7 +30,9 @@
 
 ### 演示地址
 
-http://demo.mizhexiao.top:8000/
+导航页 http://demo.mizhexiao.top:8000/
+
+管理后台 http://demo.mizhexiao.top:8000/admin
 
 username：admin
 
