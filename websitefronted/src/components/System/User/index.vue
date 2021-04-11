@@ -16,15 +16,15 @@
             </Col>
           </Row>
           <Table :loading="loading" :columns="columns" :data="data">
-            <template slot-scope="{ row }" slot="action">
-              <Button v-show="!row.is_superuser" type="warning" @click="forbidden(row)">
+            <template slot-scope="{ row }" slot="action" >
+              <Button v-show="isSuperuser" type="warning" @click="forbidden(row)">
                 <span v-if="isActive(row)">禁用</span>
                 <span v-else>启用</span>
               </Button>
-              <Button v-show="!row.is_superuser" type="primary" @click="resetPassword(row)">重置密码
+              <Button v-show="isSuperuser" type="primary" @click="resetPassword(row)">重置密码
               </Button>
-              <Button v-show="!row.is_superuser" type="info" @click="editUser(row)">编辑</Button>
-              <Button v-show="!row.is_superuser" type="error" @click="remove(row)">删除</Button>
+              <Button v-show="isSuperuser" type="info" @click="editUser(row)">编辑</Button>
+              <Button v-show="isSuperuser" type="error" @click="remove(row)">删除</Button>
             </template>
           </Table>
           <br>
@@ -90,9 +90,11 @@
                 this.init()
             })
         },
-        // mounted() {
-        //     // this.getUser()
-        // },
+        computed:{
+          isSuperuser(){
+            return this.$store.state.is_superuser
+          }
+        },
         methods: {
             beforeInit() {
                 this.url = 'api/user/'
@@ -100,6 +102,7 @@
                 return true
             },
             isActive(row) {
+                console.log("hellow",row)
                 return row.is_active
             },
             addUser() {

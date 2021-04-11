@@ -18,7 +18,7 @@ export const router = new Router({
 
 router.beforeEach((to, from, next) => {
   let now = new Date()
-  if (!['login', '404'].includes(to.name)) {
+  if (!['websites','login', '404'].includes(to.name)) {
     if (localStorage.token) {
       store.commit('decodeToken') //刷新页面vuex的token数据会丢失，在这里重新从localstorge获取值
       if (store.state.expire >= now) {

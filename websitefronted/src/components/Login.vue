@@ -85,7 +85,7 @@
                         this.loading = true
                         this.$store.dispatch('login', this.loginData).then(resp => {
                             this.loading = false
-                            this.$router.push({name: 'websites'})
+                            this.$router.push({name: 'admin'})
                         }).catch(error => {
                             this.loading = false
                             this.$Notice.error(

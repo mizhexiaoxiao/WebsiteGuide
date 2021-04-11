@@ -7,7 +7,7 @@
     </div>
     <Menu theme="light" width="auto" @on-select="anchor" @on-open-change="handleopen" :accordion="true"
           :open-names="['submenu-1']">
-      <Submenu name="submenu-1">
+      <Submenu name="submenu-1" v-show="isShowWebsite">
         <template slot="title">
           <Icon style="color: #fff" type="ios-navigate"></Icon>
           <span>网址导航</span>
@@ -16,7 +16,7 @@
           <span>{{item.name}}</span>
         </MenuItem>
       </Submenu>
-      <Submenu name="submenu-2">
+      <Submenu name="submenu-2" v-show="!isShowWebsite">
         <template slot="title">
           <Icon style="color: #fff" type="ios-construct" />
           <span>后台管理</span>
@@ -28,7 +28,7 @@
           <span>网址管理</span>
         </MenuItem>
       </Submenu>
-      <Submenu name="submenu-3">
+      <Submenu name="submenu-3" v-show="!isShowWebsite">
         <template slot="title">
           <Icon style="color: #fff" type="md-settings" />
           <span>系统管理</span>
@@ -45,6 +45,13 @@
 <script>
     export default {
         name: 'SiderMenu',
+        computed:{
+            isShowWebsite(){
+              if (this.$route.meta.title === "websiteguide"){
+                return true
+              }
+            },
+        },
         methods: {
             anchorId(id) {
                 return 'anchor' + id // querySelector锚点跳转方法id不能为纯数字

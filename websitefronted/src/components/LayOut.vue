@@ -20,14 +20,14 @@
       <Header class="layout-header-bar">
         <div>
           <Row type="flex" justify="end" align="middle">
-            <Dropdown transfer  @on-click="DropdownSelect">
+            <Dropdown transfer  @on-click="DropdownSelect" v-show="isShow">
               <!--                <Avatar :src="avatar" style="background: #2d8cf0; margin-left: 10px; "></Avatar>-->
               <div style="cursor: pointer;">
                 <span v-text="username"></span>
                 <Icon type="ios-arrow-down"></Icon>
               </div>
               <DropdownMenu slot="list">
-                <DropdownItem name="center" disabled>个人中心</DropdownItem>
+                <DropdownItem name="center" >个人中心</DropdownItem>
                 <DropdownItem name="logout" divided>登出系统</DropdownItem>
               </DropdownMenu>
             </Dropdown>
@@ -53,8 +53,12 @@
         computed: {
             username() {
                 return this.$store.state.username
-            }
-        },
+            },
+            isShow(){
+              if (this.$route.meta.title !== "websiteguide"){
+                return true
+              }
+        }},
         methods: {
             DropdownSelect(name) {
                 if (name === 'logout') {

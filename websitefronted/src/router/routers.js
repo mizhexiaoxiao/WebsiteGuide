@@ -15,17 +15,18 @@ export const appRouters = [
     redirect: '/websites',
     children: [
       {path: 'websites', name: 'websites', component: () => import('../components/Websites'),meta:{title:"websiteguide"}},
-      {path: 'center', name: 'center', component: () => import('../components/Center'),meta:{title:"center"}},
     ]
   },
   {
     path: '/admin',
     name: 'admin',
     component: LayOut,
+    redirect: '/admin/group' ,
     children: [
       {path: 'group', name: 'group-manage', component: () => import('../components/Admin/Group/index'),meta:{title:"group"}},
       {path: 'website', name: 'website-manage', component: () => import('../components/Admin/Website/index'),meta:{title:"website"}},
       {path: 'user', name: 'user-manage', component: () => import('../components/System/User/index'),meta:{title:"user"}},
+      {path: 'center', name: 'center', component: () => import('../components/Center'),meta:{title:"center"}},
     ]
   },
 ]

@@ -50,8 +50,8 @@ class AllWebsiteDataViewSet(ReadOnlyModelViewSet):
 
     queryset = models.WebSiteGroup.objects.all()
     serializer_class = AllWebsiteDataSerializers
-    authentication_classes = (JSONWebTokenAuthentication,)
-    permission_classes = [IsAuthenticated]
+    # authentication_classes = (JSONWebTokenAuthentication,)
+    # permission_classes = [IsAuthenticated]
     filter_backends = (SearchFilter,)
     search_fields = ('websites__title','websites__description')
     '''默认参数pk修改为id'''
