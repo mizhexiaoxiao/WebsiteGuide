@@ -71,7 +71,7 @@ username：admin
 
 password：admin@1234
 
-#####s 数据备份与恢复
+##### 数据备份与恢复
 **备份**
 /usr/bin/docker cp 63dd67259f9d:/WebsiteGuide/db.sqlite3 /opt/deploy/bak/db.sqlite3
 /usr/bin/docker cp 63dd67259f9d:/WebsiteGuide/websiteapp/media opt/deploy/bak/icon
