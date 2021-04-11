@@ -63,6 +63,8 @@ docker run -d --restart=always --name=websiteguide -p 8000:80 websiteguide
 
 浏览器打开http://localhost:8000
 
+管理后台http://localhost:8000/admin
+
 username：admin
 
 password：admin@1234
