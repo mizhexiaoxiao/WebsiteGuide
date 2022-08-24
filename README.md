@@ -39,7 +39,14 @@ username：admin
 password：admin@1234
 
 ### 快速开始
+#### 方法一：dockerhub拉取镜像
 
+```sh
+docker pull mizhexiaoxiao/websiteguide:latest 
+docker run -d --restart=always --name=websiteguide -p 8000:80 mizhexiaoxiao/websiteguide
+```
+
+#### 方法二：dockerfile构建镜像
 ##### docker安装(版本17.05+)
 
 ```sh
