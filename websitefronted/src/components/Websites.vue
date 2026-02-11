@@ -18,10 +18,10 @@
           <div style="cursor: pointer;" @click="redirect(data.path)">
             <Card style="border-radius: 30px;">
               <div class="card-div">
-                <div style="width: 30%;display: flex;align-items: center">
-                  <img :src="icon(data.id)" style="border-radius: 50%;width: 80%;height: 80%;">
+                <div class="icon-wrapper">
+                  <img :src="icon(data.id)" class="website-icon">
                 </div>
-                <div style="width: 70%;">
+                <div class="content-wrapper">
                   <div class="website-title">{{data.title}}</div>
                   <p class="website-desc">{{data.description}}</p>
                 </div>
@@ -55,11 +55,11 @@
                 if (path.startsWith('http')) {
                     window.open(path, '_blank')
                 } else {
-                    this.$Message.error('请填写正确的网络协议http或https')
+                    this.$Message.error('请填写正确的网址协议http或https')
                 }
             },
             anchorId(id) {
-                return 'anchor' + id // querySelector锚点跳转方法id不能为纯数字
+                return 'anchor' + id
             },
             search(value) {
                 this.$Loading.start()
@@ -72,6 +72,7 @@
         }
     }
 </script>
+
 <style>
   .ivu-tooltip {
     display: block;
@@ -83,17 +84,18 @@
     width: inherit;
   }
 </style>
-<style>
+
+<style scoped>
   .website-title {
     display: -webkit-box;
-    font-size: 20px;
+    font-size: clamp(14px, 1.5vw, 20px);
     color: #3273C4;
     margin-bottom: 5px;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     text-overflow: ellipsis;
     overflow: hidden;
-    word-break: break-all
+    word-break: break-all;
   }
 
   .website-desc {
@@ -103,6 +105,7 @@
     text-overflow: ellipsis;
     overflow: hidden;
     word-break: break-all;
+    font-size: clamp(12px, 1.2vw, 16px);
   }
 
   .card-div {
@@ -110,8 +113,79 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 70px;
-    max-height: 70px
+    min-height: 70px;
+    padding: 10px 0;
   }
 
+  /* 图标容器 - 响应式 */
+  .icon-wrapper {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* 图标图片 - 响应式 */
+  .website-icon {
+    border-radius: 50%;
+    width: clamp(40px, 4vw, 60px);
+    height: clamp(40px, 4vw, 60px);
+    object-fit: cover;
+    transition: transform 0.2s ease;
+  }
+
+  .website-icon:hover {
+    transform: scale(1.05);
+  }
+
+  /* 内容区域 */
+  .content-wrapper {
+    width: 70%;
+    padding-left: 10px;
+  }
+
+  /* 响应式布局调整 */
+  @media screen and (max-width: 1200px) {
+    .website-icon {
+      width: clamp(35px, 3.5vw, 50px);
+      height: clamp(35px, 3.5vw, 50px);
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .website-icon {
+      width: clamp(30px, 3vw, 40px);
+      height: clamp(30px, 3vw, 40px);
+    }
+    
+    .website-title {
+      font-size: clamp(12px, 2.5vw, 14px);
+    }
+    
+    .website-desc {
+      font-size: clamp(10px, 2vw, 12px);
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .card-div {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .icon-wrapper {
+      width: 100%;
+      margin-bottom: 8px;
+    }
+    
+    .content-wrapper {
+      width: 100%;
+      padding-left: 0;
+    }
+    
+    .website-icon {
+      width: 40px;
+      height: 40px;
+    }
+  }
 </style>
